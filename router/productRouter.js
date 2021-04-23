@@ -7,7 +7,8 @@ const {
   addProduct,
   getProductByCategory,
   getProductBySubcategory,
-  deleteProduct
+  deleteProduct,
+  updateProduct
 } = require("../controllers/ProductController");
 const { addReview } = require("../controllers/reviewController");
 const { auth, admin } = require("../middleware/authMiddleware");
@@ -43,5 +44,5 @@ router.post("/:id/reviews", auth, addReview);
 //GET Method
 //public
 router.delete("/:proName", deleteProduct);
-
+router.put("/:id",updateProduct)
 module.exports = router;

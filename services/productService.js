@@ -23,7 +23,6 @@ async function getAllProducts() {
 }
 async function getProductById(id) {
   return await (await Product.findById(id).populate('reviews.reviewer')).execPopulate()
-
 }
 
 // function to get all products by category
@@ -41,5 +40,38 @@ async function deleteProduct(proName) {
   return await Product.deleteOne({ name: proName })
 }
 
+//function to update product 
 
-module.exports = { addProduct, getAllProducts, getProductById, getProductByCategory ,getProductBySubcategory,deleteProduct};
+// async function updateProduct(id) {
+
+//   const product = await Product.findById(id);
+//   if (!product) throw 'product not found';
+//   Product.findByIdAndUpdate(req.params.id, {
+//     name: req.body.name || "Untitled Note",
+//     price: req.body.price,
+//     discount:req.body.discount
+//   }, { new: true })
+//     .then(prod => {
+//       if (!prod) {
+//         return res.status(404).send({
+//           message: "product not found with id " + req.params.id
+//         });
+//       }
+//       res.send(prod);
+//     }).catch(err => {
+//       if (err.kind === 'ObjectId') {
+//         return res.status(404).send({
+//           message: "product not found with id " + req.params.id
+//         });
+//       }
+//       return res.status(500).send({
+//         message: "Error updating product with id " + req.params.noteId
+//       });
+//     });
+
+//   // Object.assign(user, userParam);
+
+//   // await user.save();
+// }
+
+module.exports = { addProduct, getAllProducts, getProductById, getProductByCategory, getProductBySubcategory, deleteProduct };

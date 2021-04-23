@@ -47,6 +47,37 @@ function deleteProduct(req, res, next) {
     .then((product) => res.json(product))
     .catch((err) => next(err));
 }
+//function to update product
+async function updateProduct(req,res,next){
+  // productService.updateProduct(req.params.id)
+  //   .then((product) => res.json(product))
+  //   .catch((err) => next(err));
+    // const product = await Product.findById(req.params.id);
+    // if (!product) throw 'product not found';
+    Product.findByIdAndUpdate(req.params.id, {
+      name: req.body.name ,
+      price: req.body.price,
+      discount:req.body.discount
+    }, { new: true })
+      .then(prod => {
+        if (!prod) {
+          return res.status(404).send({
+            message: "product not found with id " + req.params.id
+          });
+        }
+        res.send(prod);
+      }).catch(err => {
+        if (err.kind === 'ObjectId') {
+          return res.status(404).send({
+            message: "product not found with id " + req.params.id
+          });
+        }
+        return res.status(500).send({
+          message: "Error updating product with id " + req.params.noteId
+        });
+      });
+  
+}
 // function addToCard(req, res, next) {
 //   var productId = req.params.id;
 //   var cart = new Cart(req.session.cart ? req.session.cart : { items: {} });
@@ -79,4 +110,4 @@ function generateArray(req, res) {
   res.json(req.session.cart);
 }
 
-module.exports = { generateArray, getAllProducts, getProductById, addProduct, getProductByCategory, getProductBySubcategory,deleteProduct };
+module.exports = { generateArray, getAllProducts, getProductById, addProduct, getProductByCategory, getProductBySubcategory,deleteProduct,updateProduct };

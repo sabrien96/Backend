@@ -1,4 +1,3 @@
-
 const userService = require('../services/userService');
 
 function authenticate(req, res, next) {
