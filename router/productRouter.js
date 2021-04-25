@@ -19,7 +19,6 @@ const router = express.Router();
 //GET Method
 router.get("/bysubcategory/:subcategory", getProductBySubcategory);
 router.get("/bycategory/:category", getProductByCategory);
-
 //ENDPOINT: /api/products/
 //GET Method
 //public

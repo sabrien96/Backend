@@ -4,14 +4,7 @@ async function addProduct(req) {
   const product = new Product(
     {
       ...req.body
-      //   name: req.body.name,
-      //   image: req.body.image,
-      //   brand: req.body.brand,
-      //   description: req.body.description,
-      //   countInStock: req.body.countInStock,
-      //   price: req.body.price,
-      //   category: req.body.category,
-      //   subCategeory: req.body.subCategeory,
+       
     });
   return await product.save()
 
