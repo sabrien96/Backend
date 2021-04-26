@@ -49,11 +49,6 @@ function deleteProduct(req, res, next) {
 }
 //function to update product
 async function updateProduct(req,res,next){
-  // productService.updateProduct(req.params.id)
-  //   .then((product) => res.json(product))
-  //   .catch((err) => next(err));
-    // const product = await Product.findById(req.params.id);
-    // if (!product) throw 'product not found';
     Product.findByIdAndUpdate(req.params.id, {
       name: req.body.name ,
       price: req.body.price,
