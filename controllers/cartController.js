@@ -33,5 +33,14 @@ function postCart(req, res, next) {
       })
       .catch(err => console.log(err));
   };
-  module.exports = {postCartDeleteProduct,getCart,postCart}
+  function clearCartItems(req, res) {
+   // const prodId = req.body.productId;
+    req.user
+      .clearCart()
+      .then(result => {
+        res.status(200).send("deleted cart successfully")
+      })
+      .catch(err => console.log(err));
+  };
+  module.exports = {postCartDeleteProduct,getCart,postCart,clearCartItems}
   ///////////////////////////////////////////////////////////////////////////
