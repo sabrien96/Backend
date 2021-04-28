@@ -13,6 +13,13 @@ function register(req, res, next) {
         .catch(err => next(err));
 }
 
+//register for Checkout
+function registerCheckOut(req, res, next) {
+    userService.create(req.body)
+        .then((user) => res.json(user))
+        .catch(err => next(err));
+}
+
 function getAll(req, res, next) {
     userService.getAll()
         .then(users => res.json(users))
@@ -45,4 +52,4 @@ function remove(req, res, next) {
 
 
 
-module.exports = { authenticate, register, getAll, getCurrent, getById, update, remove };
+module.exports = { authenticate, register,registerCheckOut, getAll, getCurrent, getById, update, remove };

@@ -8,7 +8,7 @@ const orderSchema = mongoose.Schema(
                 quantity: { type: Number, required: true }
             }
         ],
-        userId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'user' },
+        userId: { type: mongoose.Schema.Types.ObjectId, required: true },
         clientInfo: {
             firstName: { type: String, required: true },
             lastName: { type: String, required: true },
