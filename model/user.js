@@ -31,7 +31,7 @@ const userSchema = mongoose.Schema(
   
     if (cartProductIndex >= 0) {
       if(newQuantity == 1){
-        newQuantity = this.cart.items[cartProductIndex].quantity + 1;
+        newQuantity =1;// this.cart.items[cartProductIndex].quantity + 1;
       } 
       updatedCartItems[cartProductIndex].quantity = newQuantity;
       console.log(newQuantity)
