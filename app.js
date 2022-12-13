@@ -50,4 +50,4 @@ connectDB()
 //running the server
 app.listen(PORT, () => console.log(
     `server is running in ${MODE} mode on port ${PORT} ...  `
-))
+    ))
